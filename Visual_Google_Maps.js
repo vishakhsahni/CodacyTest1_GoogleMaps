@@ -13,17 +13,17 @@
             contentString += "<br>" + "Coordinate " + i + ":<br>" + xy.lat() + "," + xy.lng();
         }
         // Replace the info window's content and position.
-        infoWindow.setContent(contentString);
-        infoWindow.setPosition(event.latLng);
-        infoWindow.open(map);
+        //infoWindow.setContent(contentString);
+        //infoWindow.setPosition(event.latLng);
+        //infoWindow.open(map);
     }
 	function initMap(){
 		//implement the Array.insert method
-			 Array.prototype.insert = function ( index, item ) {
-   			 this.splice( index, 0, item );
-			};
+		Array.prototype.insert = function ( index, item ) {
+		this.splice( index, 0, item );
+		};
                 var map;
-                var infoWindow;
+                //var infoWindow;
                 var irad=Number(document.getElementById("rad").value);
                 var ilong=Number(document.getElementById("long").value);
                 var ilat=Number(document.getElementById("lat").value);
