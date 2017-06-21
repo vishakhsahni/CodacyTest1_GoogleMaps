@@ -40,10 +40,11 @@ function initMap(){
                  * and confidence level for each grid coordinates*/
                 dataG =new Array();
                 for (i = 0; i  < iRows; i ++) {
-                  //test
+                  //test-arr.insert(index, item)
                   
                     var tempArray = new Array(iCols);
-                    dataG[i] = tempArray;
+                    dataG.insert(i,tempArray);
+                    //*dataG[i] = tempArray;
                   //
                    temp = i;
                     if(temp%100 > 0){
