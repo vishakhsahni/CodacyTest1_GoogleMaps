@@ -51,39 +51,51 @@ function initMap(){
                         for (j = 0; j < iCols; j++) {                    
                             if(j===0)
                             {
-                                dataG[temp][0] = dataG[temp-1][0] + 0.00002;
+                                dataG[temp].insert(0,dataG[temp-1][0] + 0.00002);
+                               // dataG[temp][0] = dataG[temp-1][0] + 0.00002;
                             }else if(j===1)
                             {
-                                dataG[temp][1] = dataG[temp-1][1] + 0.001152;                 
+                                dataG[temp].insert(1,dataG[temp-1][1] + 0.001152);
+                               // dataG[temp][1] = dataG[temp-1][1] + 0.001152;                 
                             } else if(j===2){
-                                dataG[temp][2] = Math.floor(Math.random()*1000); 
+                                dataG[temp].insert(2,Math.floor(Math.random()*1000));
+                               // dataG[temp][2] = Math.floor(Math.random()*1000); 
                             } else {
-                                dataG[temp][3] = Math.floor(Math.random()*100); 
+                                dataG[temp].insert(3,Math.floor(Math.random()*100));
+                               // dataG[temp][3] = Math.floor(Math.random()*100); 
                             }
                         }
                     }
                      else {
                         for (j = 0; j < iCols; j++) {
                             if(temp===0 && j===0){
-                                dataG[temp][j] = ilat-((0.00002*50)+(0.00090*50));
+                                dataG[temp].insert(j,ilat-((0.00002*50)+(0.00090*50)));
+                                //dataG[temp][j] = ilat-((0.00002*50)+(0.00090*50));
                             }
                             else if(temp===0 && j===1)
                             {
-                                dataG[temp][j] = ilong-((0.001152*50)+(0.000026*50));  
-                                dataG[temp][2] = Math.floor(Math.random()*1000);
-                                dataG[temp][3] = Math.floor(Math.random()*100);
+                                dataG[temp].insert(j,ilong-((0.001152*50)+(0.000026*50)));
+                                //dataG[temp][j] = ilong-((0.001152*50)+(0.000026*50));  
+                                dataG[temp].insert(2,Math.floor(Math.random()*1000));
+                                //dataG[temp][2] = Math.floor(Math.random()*1000);
+                                dataG[temp].insert(3,Math.floor(Math.random()*100));
+                                //dataG[temp][3] = Math.floor(Math.random()*100);
                             }
                             else{
                                 if(j===0)
                                 {
-                                   dataG[temp][0] = dataG[temp-100][0] + 0.0009;
+                                    dataG[temp].insert(0,dataG[temp-100][0] + 0.0009);
+                                   //dataG[temp][0] = dataG[temp-100][0] + 0.0009;
                                 }else if(j===1)
                                 {
-                                    dataG[temp][1] = dataG[temp-100][1] + 0.000026;
+                                    dataG[temp].insert(1,dataG[temp-100][1] + 0.000026);
+                                    //dataG[temp][1] = dataG[temp-100][1] + 0.000026;
                                 } else if(j===2){ 
-                                    dataG[temp][2] = Math.floor(Math.random()*1000); 
+                                    dataG[temp].insert(2,Math.floor(Math.random()*1000));
+                                   // dataG[temp][2] = Math.floor(Math.random()*1000); 
                                 } else{
-                                    dataG[temp][3] = Math.floor(Math.random()*100); 
+                                    dataG[temp].insert(3,Math.floor(Math.random()*100));
+                                    //dataG[temp][3] = Math.floor(Math.random()*100); 
                                 }
                             }
                         }
