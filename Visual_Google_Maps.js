@@ -16,53 +16,54 @@ function initMap(){
                 var i;
                 var j;
                 var temp;
-                var data_g = new Array();
+                var dataG;
                 /* Generate 10000 coordinates and generate random data of population density 
                  * and confidence level for each grid coordinates*/
+                dataG =new Array();
                 for (i = 0; i  < iRows; i ++) {
                   //test
                   
-                    var tempArray = new Array(iCols)
-                    data_g[i] = tempArray;
+                    var tempArray = new Array(iCols);
+                    dataG[i] = tempArray;
                   //
                    temp = i;
                     if(temp%100 > 0){
                         for (j = 0; j < iCols; j++) {                    
                             if(j===0)
                             {
-                                data_g[temp][0] = data_g[temp-1][0] + 0.00002;
+                                dataG[temp][0] = dataG[temp-1][0] + 0.00002;
                             }else if(j===1)
                             {
-                                data_g[temp][1] = data_g[temp-1][1] + 0.001152;                 
+                                dataG[temp][1] = dataG[temp-1][1] + 0.001152;                 
                             } else if(j===2){
-                                data_g[temp][2] = Math.floor(Math.random()*1000); 
+                                dataG[temp][2] = Math.floor(Math.random()*1000); 
                             } else if(j===3){
-                                data_g[temp][3] = Math.floor(Math.random()*100); 
+                                dataG[temp][3] = Math.floor(Math.random()*100); 
                             }
                         }
                     }
                      else {
                         for (j = 0; j < iCols; j++) {
                             if(temp===0 && j===0){
-                                data_g[temp][j] = ilat-((0.00002*50)+(0.00090*50));
+                                dataG[temp][j] = ilat-((0.00002*50)+(0.00090*50));
                             }
                             else if(temp===0 && j===1)
                             {
-                                data_g[temp][j] = ilong-((0.001152*50)+(0.000026*50));  
-                                data_g[temp][2] = Math.floor(Math.random()*1000);
-                                data_g[temp][3] = Math.floor(Math.random()*100);
+                                dataG[temp][j] = ilong-((0.001152*50)+(0.000026*50));  
+                                dataG[temp][2] = Math.floor(Math.random()*1000);
+                                dataG[temp][3] = Math.floor(Math.random()*100);
                             }
                             else{
                                 if(j===0)
                                 {
-                                   data_g[temp][0] = data_g[temp-100][0] + 0.0009;
+                                   dataG[temp][0] = dataG[temp-100][0] + 0.0009;
                                 }else if(j===1)
                                 {
-                                    data_g[temp][1] = data_g[temp-100][1] + 0.000026;
+                                    dataG[temp][1] = dataG[temp-100][1] + 0.000026;
                                 } else if(j===2){ 
-                                    data_g[temp][2] = Math.floor(Math.random()*1000); 
+                                    dataG[temp][2] = Math.floor(Math.random()*1000); 
                                 } else if(j===3){
-                                    data_g[temp][3] = Math.floor(Math.random()*100); 
+                                    dataG[temp][3] = Math.floor(Math.random()*100); 
                                 }
                             }
                         }
@@ -91,33 +92,33 @@ function initMap(){
                         }
                         else{ 
                             var squareCoords = [
-                                {lat: data_g[i][0], lng: data_g[i][1]},
-                                {lat: data_g[i+100][0], lng: data_g[i+100][1]},
-                                {lat: data_g[i+101][0], lng: data_g[i+101][1]},
-                                {lat: data_g[i+1][0], lng: data_g[i+1][1]}
+                                {lat: dataG[i][0], lng: dataG[i][1]},
+                                {lat: dataG[i+100][0], lng: dataG[i+100][1]},
+                                {lat: dataG[i+101][0], lng: dataG[i+101][1]},
+                                {lat: dataG[i+1][0], lng: dataG[i+1][1]}
                             ];
                             var color;
                             var opacity;
-                            if(data_g[i][2]>1 && data_g[i][2]<10){
+                            if(dataG[i][2]>1 && dataG[i][2]<10){
                                 color = '#00FF00';
                             } 
-                            else if(data_g[i][2]>10 && data_g[i][2]<100)
+                            else if(dataG[i][2]>10 && dataG[i][2]<100)
                             {
                                 color = '#FFFF00';
-                            } else if(data_g[i][2]>100 && data_g[i][2]<1000){
+                            } else if(dataG[i][2]>100 && dataG[i][2]<1000){
                                 color = '#FF7F00';
                             } else {
                                 color = '#FF0000';
                             }
-                            if(data_g[i][3]>0 && data_g[i][3]<25)
+                            if(dataG[i][3]>0 && dataG[i][3]<25)
                             {
                                 opacity = 0.2;
                             }
-                            else if(data_g[i][3]>25 && data_g[i][3]<50)
+                            else if(dataG[i][3]>25 && dataG[i][3]<50)
                             {
                                 opacity = 0.3;
                             } 
-                            else if(data_g[i][3]>50 && data_g[i][3]<75)
+                            else if(dataG[i][3]>50 && dataG[i][3]<75)
                             {
                                 opacity: 0.4;
                             }
