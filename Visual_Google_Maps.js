@@ -18,7 +18,10 @@ function initMap(){
                 /* Generate 10000 coordinates and generate random data of population density 
                  * and confidence level for each grid coordinates*/
                 for (i = 0; i < iRows; i++) {
-                    data_g[i] = new Array(iCols);
+                  //test
+                    var temp = new Array(iCols)
+                    data_g[i] = temp;
+                  //
                     if(i%100 > 0){
                         for (j = 0; j < iCols; j++) {                    
                             if(j===0)
