@@ -62,28 +62,7 @@ function initMap(){
                                 case 3:
                                     dataG[temp].insert(3,Math.floor(Math.random()*100));
                                     break;
-                                    }
-                            
-                            
-                           /* if(j===0)
-                            {
-                            
-                                dataG[temp].insert(0,dataG[temp-1][0] + 0.00002);
-                               // dataG[temp][0] = dataG[temp-1][0] + 0.00002;
-                            }else if(j===1)
-                            {
-                                dataG[temp].insert(1,dataG[temp-1][1] + 0.001152);
-                               // dataG[temp][1] = dataG[temp-1][1] + 0.001152;                 
-                            } else if(j===2){
-                                dataG[temp].insert(2,Math.floor(Math.random()*1000));
-                               // dataG[temp][2] = Math.floor(Math.random()*1000); 
-                            } else {
-                                dataG[temp].insert(3,Math.floor(Math.random()*100));
-                               // dataG[temp][3] = Math.floor(Math.random()*100); 
-                            }
-                            */
-                            
-                            
+                             }                            
                         }
                     }
                      else {
@@ -102,21 +81,21 @@ function initMap(){
                                 //dataG[temp][3] = Math.floor(Math.random()*100);
                             }
                             else{
-                                if(j===0)
-                                {
+                                
+                                switch(j){
+                                case 0:
                                     dataG[temp].insert(0,dataG[temp-100][0] + 0.0009);
-                                   //dataG[temp][0] = dataG[temp-100][0] + 0.0009;
-                                }else if(j===1)
-                                {
-                                    dataG[temp].insert(1,dataG[temp-100][1] + 0.000026);
-                                    //dataG[temp][1] = dataG[temp-100][1] + 0.000026;
-                                } else if(j===2){ 
-                                    dataG[temp].insert(2,Math.floor(Math.random()*1000));
-                                   // dataG[temp][2] = Math.floor(Math.random()*1000); 
-                                } else{
+                                    break;
+                                case 1:
+                                     dataG[temp].insert(1,dataG[temp-100][1] + 0.000026);
+                                    break;
+                                case 2:
+                                     dataG[temp].insert(2,Math.floor(Math.random()*1000));
+                                    break;
+                                case 3:
                                     dataG[temp].insert(3,Math.floor(Math.random()*100));
-                                    //dataG[temp][3] = Math.floor(Math.random()*100); 
-                                }
+                                    break;
+                                 }           
                             }
                         }
                     }
@@ -149,32 +128,35 @@ function initMap(){
                             ];
                             var color;
                             var opacity;
-                            if(dataG[i][2]>1 && dataG[i][2]<10){
-                                color = "#00FF00";
-                            } 
-                            else if(dataG[i][2]>10 && dataG[i][2]<100)
-                            {
-                                color = "#FFFF00";
-                            } else if(dataG[i][2]>100 && dataG[i][2]<1000){
-                                color = "#FF7F00";
-                            } else {
-                                color = "#FF0000";
+                            var popColor = dataG[i][2];
+                            switch (true){
+                                   case(popColor >1 && popColor<10):
+                                        color = "#00FF00";
+                                        break;
+                                   case(popColor >10 && popColor<100):
+                                        color = "#FFFF00";
+                                        break;
+                                   case(popColor >100 && popColor<1000):
+                                        color = "#FF7F00";
+                                        break;
+                                   case(popColor >1000):
+                                        color = "#FF0000";
+                                        break;
                             }
-                            if(dataG[i][3]>0 && dataG[i][3]<25)
-                            {
-                                opacity = 0.2;
-                            }
-                            else if(dataG[i][3]>25 && dataG[i][3]<50)
-                            {
-                                opacity = 0.3;
-                            } 
-                            else if(dataG[i][3]>50 && dataG[i][3]<75)
-                            {
-                                opacity: 0.4;
-                            }
-                            else
-                            {
-                                opacity: 0.5;
+                            var popConf = dataG[i][3];
+                            switch (true){
+                                   case(popConf >0 && popConf<25):
+                                         opacity = 0.2;
+                                        break;
+                                   case(popConf >25 && popConf<50):
+                                         opacity = 0.3;
+                                        break;
+                                   case(popConf >50 && popConf<75):
+                                         opacity = 0.4;
+                                        break;
+                                   case(popConf >75):
+                                         opacity = 0.5;
+                                        break;
                             }
                             var UTMsquare = new google.maps.Polygon({
                                 paths: squareCoords,
