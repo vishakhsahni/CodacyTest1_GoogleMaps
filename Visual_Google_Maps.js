@@ -17,7 +17,7 @@
         infoWindow.setPosition(event.latLng);
         infoWindow.open(map);
     }
-		function initMap(){
+	function initMap(){
 		//implement the Array.insert method
 			 Array.prototype.insert = function ( index, item ) {
    			 this.splice( index, 0, item );
@@ -53,18 +53,19 @@
                    temp = i;
                     if(temp%100 > 0){
                         for (j = 0; j < iCols; j++) {    
+				var element = dataG[temp];
                             switch(j){
                                 case 0:
-                                    dataG[temp].insert(0,dataG[temp-1][0] + 0.00002);
+                                    element.insert(0,dataG[temp-1][0] + 0.00002);
                                     break;
                                 case 1:
-                                    dataG[temp].insert(1,dataG[temp-1][1] + 0.001152);
+                                    element.insert(1,dataG[temp-1][1] + 0.001152);
                                     break;
                                 case 2:
-                                     dataG[temp].insert(2,Math.floor(Math.random()*1000));
+                                     element.insert(2,Math.floor(Math.random()*1000));
                                     break;
                                 case 3:
-                                    dataG[temp].insert(3,Math.floor(Math.random()*100));
+                                    element.insert(3,Math.floor(Math.random()*100));
                                     break;
                              }                            
                         }
@@ -72,32 +73,32 @@
                      else {
                         for (j = 0; j < iCols; j++) {
                             if(temp===0 && j===0){
-                                dataG[temp].insert(j,ilat-((0.00002*50)+(0.00090*50)));
+                                element.insert(j,ilat-((0.00002*50)+(0.00090*50)));
                                 //dataG[temp][j] = ilat-((0.00002*50)+(0.00090*50));
                             }
                             else if(temp===0 && j===1)
                             {
-                                dataG[temp].insert(j,ilong-((0.001152*50)+(0.000026*50)));
+                                element.insert(j,ilong-((0.001152*50)+(0.000026*50)));
                                 //dataG[temp][j] = ilong-((0.001152*50)+(0.000026*50));  
-                                dataG[temp].insert(2,Math.floor(Math.random()*1000));
+                                element.insert(2,Math.floor(Math.random()*1000));
                                 //dataG[temp][2] = Math.floor(Math.random()*1000);
-                                dataG[temp].insert(3,Math.floor(Math.random()*100));
+                                element.insert(3,Math.floor(Math.random()*100));
                                 //dataG[temp][3] = Math.floor(Math.random()*100);
                             }
                             else{
                                 
                                 switch(j){
                                 case 0:
-                                    dataG[temp].insert(0,dataG[temp-100][0] + 0.0009);
+                                    element.insert(0,dataG[temp-100][0] + 0.0009);
                                     break;
                                 case 1:
-                                     dataG[temp].insert(1,dataG[temp-100][1] + 0.000026);
+                                     element.insert(1,dataG[temp-100][1] + 0.000026);
                                     break;
                                 case 2:
-                                     dataG[temp].insert(2,Math.floor(Math.random()*1000));
+                                     element.insert(2,Math.floor(Math.random()*1000));
                                     break;
                                 case 3:
-                                    dataG[temp].insert(3,Math.floor(Math.random()*100));
+                                    element.insert(3,Math.floor(Math.random()*100));
                                     break;
                                  }           
                             }
