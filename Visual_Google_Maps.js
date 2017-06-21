@@ -13,54 +13,56 @@ function initMap(){
                 var iRows = 10000;
                 var iCols = 4;
                 var Firsti;
-                //var i;
+                var i;
                 var j;
+                var temp;
                 var data_g = new Array();
                 /* Generate 10000 coordinates and generate random data of population density 
                  * and confidence level for each grid coordinates*/
-                for (Firsti = 0; Firsti  < iRows; Firsti ++) {
+                for (i = 0; i  < iRows; i ++) {
                   //test
+                  
                     var temp = new Array(iCols)
                     data_g[i] = temp;
                   //
-                  var i= Firsti;
-                    if(i%100 > 0){
+                   temp = i;
+                    if(temp%100 > 0){
                         for (j = 0; j < iCols; j++) {                    
                             if(j===0)
                             {
-                                data_g[i][0] = data_g[i-1][0] + 0.00002;
+                                data_g[temp][0] = data_g[temp-1][0] + 0.00002;
                             }else if(j===1)
                             {
-                                data_g[i][1] = data_g[i-1][1] + 0.001152;                 
+                                data_g[temp][1] = data_g[temp-1][1] + 0.001152;                 
                             } else if(j===2){
-                                data_g[i][2] = Math.floor(Math.random()*1000); 
+                                data_g[temp][2] = Math.floor(Math.random()*1000); 
                             } else if(j===3){
-                                data_g[i][3] = Math.floor(Math.random()*100); 
+                                data_g[temp][3] = Math.floor(Math.random()*100); 
                             }
                         }
                     }
                      else {
                         for (j = 0; j < iCols; j++) {
-                            if(i===0 && j===0){
-                                data_g[i][j] = ilat-((0.00002*50)+(0.00090*50));
+                            if(temp===0 && j===0){
+                                data_g[temp][j] = ilat-((0.00002*50)+(0.00090*50));
                             }
-                            else if(i===0 && j===1)
+                            else if(temp===0 && j===1)
                             {
-                                data_g[i][j] = ilong-((0.001152*50)+(0.000026*50));  
-                                data_g[i][2] = Math.floor(Math.random()*1000);
-                                data_g[i][3] = Math.floor(Math.random()*100);
+                                data_g[temp][j] = ilong-((0.001152*50)+(0.000026*50));  
+                                data_g[temp][2] = Math.floor(Math.random()*1000);
+                                data_g[temp][3] = Math.floor(Math.random()*100);
                             }
                             else{
                                 if(j===0)
                                 {
-                                   data_g[i][0] = data_g[i-100][0] + 0.0009;
+                                   data_g[temp][0] = data_g[temp-100][0] + 0.0009;
                                 }else if(j===1)
                                 {
-                                    data_g[i][1] = data_g[i-100][1] + 0.000026;
+                                    data_g[temp][1] = data_g[temp-100][1] + 0.000026;
                                 } else if(j===2){ 
-                                    data_g[i][2] = Math.floor(Math.random()*1000); 
+                                    data_g[temp][2] = Math.floor(Math.random()*1000); 
                                 } else if(j===3){
-                                    data_g[i][3] = Math.floor(Math.random()*100); 
+                                    data_g[temp][3] = Math.floor(Math.random()*100); 
                                 }
                             }
                         }
@@ -79,7 +81,7 @@ function initMap(){
                 });
                 Circle.setMap(map); 
                 // Construct the UTM Squares.
-                for(var i = 0;i < 10000;i++)
+                for(i = 0;i < 10000;i++)
                 { 
                     var coord1 = new google.maps.LatLng(a[i][0]+(0.00090/2), a[i][1]+(0.001152/2));
                     if(Circle.getBounds().contains(coord1))
