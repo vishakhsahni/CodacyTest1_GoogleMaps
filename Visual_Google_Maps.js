@@ -107,8 +107,6 @@ function initMap(){
                     if(Circle.getBounds().contains(coord1))
                     {
                         if(i%100 === 99)
-                        {
-                        }
                         else{ 
                             var squareCoords = [
                                 {lat: dataG[i][0], lng: dataG[i][1]},
@@ -161,8 +159,6 @@ function initMap(){
                 }
             }
             else
-            {
-            }
         }
     }
     
