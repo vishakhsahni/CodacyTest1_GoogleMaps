@@ -1,4 +1,4 @@
-function showArrays(event) 
+ function showArrays(event) 
     {
         /* Since this polygon has only one path, we can call getPath() to return the
          *          MVCArray of LatLngs.*/
@@ -17,7 +17,11 @@ function showArrays(event)
         infoWindow.setPosition(event.latLng);
         infoWindow.open(map);
     }
-function initMap(){
+		function initMap(){
+		//implement the Array.insert method
+			 Array.prototype.insert = function ( index, item ) {
+   			 this.splice( index, 0, item );
+			};
                 var map;
                 var infoWindow;
                 var irad=Number(document.getElementById("rad").value);
@@ -44,7 +48,7 @@ function initMap(){
                   
                     var tempArray = new Array(iCols);
                     dataG.insert(i,tempArray);
-                    //*dataG[i] = tempArray;
+                    //dataG[i] = tempArray;
                   //
                    temp = i;
                     if(temp%100 > 0){
