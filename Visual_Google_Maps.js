@@ -103,11 +103,11 @@ function initMap(){
                 // Construct the UTM Squares.
                 for(i = 0;i < 10000;i++)
                 { 
-                    var coord1 = new google.maps.LatLng(a[i][0]+(0.00090/2), a[i][1]+(0.001152/2));
+                    var coord1 = new google.maps.LatLng(dataG[i][0]+(0.00090/2), dataG[i][1]+(0.001152/2));
                     if(Circle.getBounds().contains(coord1))
                     {
-                        if(i%100 === 99)
-                        else{ 
+                        if(i%100 !== 99){
+                        
                             var squareCoords = [
                                 {lat: dataG[i][0], lng: dataG[i][1]},
                                 {lat: dataG[i+100][0], lng: dataG[i+100][1]},
@@ -158,7 +158,6 @@ function initMap(){
                             
                 }
             }
-            else
         }
     }
     
