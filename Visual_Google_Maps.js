@@ -56,7 +56,7 @@ function initMap(){
                                 dataG[temp][1] = dataG[temp-1][1] + 0.001152;                 
                             } else if(j===2){
                                 dataG[temp][2] = Math.floor(Math.random()*1000); 
-                            } else if(j===3){
+                            } else {
                                 dataG[temp][3] = Math.floor(Math.random()*100); 
                             }
                         }
@@ -81,7 +81,7 @@ function initMap(){
                                     dataG[temp][1] = dataG[temp-100][1] + 0.000026;
                                 } else if(j===2){ 
                                     dataG[temp][2] = Math.floor(Math.random()*1000); 
-                                } else if(j===3){
+                                } else{
                                     dataG[temp][3] = Math.floor(Math.random()*100); 
                                 }
                             }
