@@ -51,7 +51,8 @@ function initMap(){
                         for (j = 0; j < iCols; j++) {                    
                             if(j===0)
                             {
-                                dataG[temp].insert(0,dataG[temp-1][0] + 0.00002);
+                                var subDateG = dataG[temp];
+                                subDateG.insert(0,dataG[temp-1][0] + 0.00002);
                                // dataG[temp][0] = dataG[temp-1][0] + 0.00002;
                             }else if(j===1)
                             {
