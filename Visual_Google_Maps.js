@@ -12,16 +12,18 @@ function initMap(){
                 });
                 var iRows = 10000;
                 var iCols = 4;
-                var i;
+                var Firsti;
+                //var i;
                 var j;
                 var data_g = new Array();
                 /* Generate 10000 coordinates and generate random data of population density 
                  * and confidence level for each grid coordinates*/
-                for (i = 0; i < iRows; i++) {
+                for (Firsti = 0; Firsti  < iRows; Firsti ++) {
                   //test
                     var temp = new Array(iCols)
                     data_g[i] = temp;
                   //
+                  var i= Firsti;
                     if(i%100 > 0){
                         for (j = 0; j < iCols; j++) {                    
                             if(j===0)
@@ -35,16 +37,20 @@ function initMap(){
                             } else if(j===3){
                                 data_g[i][3] = Math.floor(Math.random()*100); 
                             }
-                        }}else {
+                        }
+                    }
+                     else {
                         for (j = 0; j < iCols; j++) {
                             if(i===0 && j===0){
                                 data_g[i][j] = ilat-((0.00002*50)+(0.00090*50));
-                            }else if(i===0 && j===1)
+                            }
+                            else if(i===0 && j===1)
                             {
                                 data_g[i][j] = ilong-((0.001152*50)+(0.000026*50));  
                                 data_g[i][2] = Math.floor(Math.random()*1000);
                                 data_g[i][3] = Math.floor(Math.random()*100);
-                            }else{
+                            }
+                            else{
                                 if(j===0)
                                 {
                                    data_g[i][0] = data_g[i-100][0] + 0.0009;
