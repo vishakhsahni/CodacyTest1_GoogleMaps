@@ -48,8 +48,24 @@ function initMap(){
                   //
                    temp = i;
                     if(temp%100 > 0){
-                        for (j = 0; j < iCols; j++) {                    
-                            if(j===0)
+                        for (j = 0; j < iCols; j++) {    
+                            switch(j){
+                                case 0:
+                                    dataG[temp].insert(0,dataG[temp-1][0] + 0.00002);
+                                    break;
+                                case 1:
+                                    dataG[temp].insert(1,dataG[temp-1][1] + 0.001152);
+                                    break;
+                                case 2:
+                                     dataG[temp].insert(2,Math.floor(Math.random()*1000));
+                                    break;
+                                case 3:
+                                    dataG[temp].insert(3,Math.floor(Math.random()*100));
+                                    break;
+                                    }
+                            
+                            
+                           /* if(j===0)
                             {
                             
                                 dataG[temp].insert(0,dataG[temp-1][0] + 0.00002);
@@ -65,6 +81,9 @@ function initMap(){
                                 dataG[temp].insert(3,Math.floor(Math.random()*100));
                                // dataG[temp][3] = Math.floor(Math.random()*100); 
                             }
+                            */
+                            
+                            
                         }
                     }
                      else {
