@@ -3,14 +3,14 @@ function showArrays(event)
         /* Since this polygon has only one path, we can call getPath() to return the
          *          MVCArray of LatLngs.*/
         var vertices = this.getPath();
-        var contentString = '<b>UTM Square polygon</b><br>' + 
-                'Clicked location: <br>' + event.latLng.lat() + ',' + event.latLng.lng() +
-                '<br>';
+        var contentString = "<b>UTM Square polygon</b><br>" + 
+                "Clicked location: <br>" + event.latLng.lat() + "," + event.latLng.lng() +
+                "<br>";
         // Iterate over the vertices.
         for (var i =0; i < vertices.getLength(); i++) 
         {
             var xy = vertices.getAt(i);
-            contentString += '<br>' + 'Coordinate ' + i + ':<br>' + xy.lat() + ',' + xy.lng();
+            contentString += "<br>" + "Coordinate " + i + ":<br>" + xy.lat() + "," + xy.lng();
         }
         // Replace the info window's content and position.
         infoWindow.setContent(contentString);
@@ -23,7 +23,7 @@ function initMap(){
                 var irad=Number(document.getElementById("rad").value);
                 var ilong=Number(document.getElementById("long").value);
                 var ilat=Number(document.getElementById("lat").value);
-                map = new google.maps.Map(document.getElementById('map'), {
+                map = new google.maps.Map(document.getElementById("map"), {
                     zoom: 15,
                     center: {lat: ilat, lng: ilong},
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -90,12 +90,12 @@ function initMap(){
                 }
                 // Define the circular range.        
                 var Circle = new google.maps.Circle({
-                    strokeColor: '#0000FF',
+                    strokeColor: "#0000FF",
                     strokeOpacity: 0.8,
                     strokeWeight: 2,
-                    fillColor: '#0000FF',
+                    fillColor: "#0000FF",
                     fillOpacity: 0.0,
-                    map: map,
+                    map,
                     center: {lat: ilat, lng: ilong},
                     radius: irad
                 });
@@ -117,15 +117,15 @@ function initMap(){
                             var color;
                             var opacity;
                             if(dataG[i][2]>1 && dataG[i][2]<10){
-                                color = '#00FF00';
+                                color = "#00FF00";
                             } 
                             else if(dataG[i][2]>10 && dataG[i][2]<100)
                             {
-                                color = '#FFFF00';
+                                color = "#FFFF00";
                             } else if(dataG[i][2]>100 && dataG[i][2]<1000){
-                                color = '#FF7F00';
+                                color = "#FF7F00";
                             } else {
-                                color = '#FF0000';
+                                color = "#FF0000";
                             }
                             if(dataG[i][3]>0 && dataG[i][3]<25)
                             {
@@ -145,7 +145,7 @@ function initMap(){
                             }
                             var UTMsquare = new google.maps.Polygon({
                                 paths: squareCoords,
-                                strokeColor: '#FFFFFF',
+                                strokeColor: "#FFFFFF",
                                 strokeOpacity: 0.2,
                                 strokeWeight: 1,
                                 fillColor: color,
@@ -153,7 +153,7 @@ function initMap(){
                             });
                             UTMsquare.setMap(map);
                             // Add a listener for the click event.
-                            UTMsquare.addListener('click', showArrays);
+                            UTMsquare.addListener("click", showArrays);
                             infoWindow = new google.maps.InfoWindow;
                             
                 }
