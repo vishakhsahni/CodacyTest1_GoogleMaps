@@ -22,8 +22,8 @@ function initMap(){
                 for (i = 0; i  < iRows; i ++) {
                   //test
                   
-                    var temp = new Array(iCols)
-                    data_g[i] = temp;
+                    var tempArray = new Array(iCols)
+                    data_g[i] = tempArray;
                   //
                    temp = i;
                     if(temp%100 > 0){
