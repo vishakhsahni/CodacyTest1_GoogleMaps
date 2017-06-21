@@ -51,9 +51,10 @@
                     //dataG[i] = tempArray;
                   //
                    temp = i;
+			var element = dataG[temp];
                     if(temp%100 > 0){
                         for (j = 0; j < iCols; j++) {    
-				var element = dataG[temp];
+				
                             switch(j){
                                 case 0:
                                     element.insert(0,dataG[temp-1][0] + 0.00002);
